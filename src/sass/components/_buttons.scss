@@ -1,13 +1,14 @@
 .back-to-top {
   position: fixed;
-  background: getColor('yellow-main');
+  background: getColor('accent-color');
   color: getColor('theme-white');
   border-radius: 50%;
   display: flex;
   bottom: -50px;
   padding: 10px 12px;
   right: 20px;
-  cursor: pointer;
+  cursor: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%238AE0A1' stroke-width='1' d='m18.047 14.012 10.934 10.205c1.871 1.746.837 4.883-1.706 5.174l-4.118.47a5 5 0 0 0-2.777 1.251l-2.373 2.136c-1.93 1.738-5.007.368-5.007-2.23V16.206c0-2.623 3.13-3.983 5.047-2.193Z'/%3E%3C/svg%3E"),
+    default;
   transition: 0.3s all;
 }
 
@@ -17,7 +18,12 @@
 }
 
 .back-icon {
-  fill: getColor('green-main');
+  fill: getColor('icon-main-color');
+}
+
+.back-icon:hover,
+.back-icon:focus {
+  fill: getColor('icon-hover-focus');
 }
 
 .btn-header {
@@ -29,58 +35,13 @@
     display: block;
   }
   &:focus > .btn__icon {
-    fill: getColor('theme-white');
-  }
-}
-
-.btn-hero {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.btn-hero_icon {
-  fill: getColor('theme-white');
-}
-
-.btn-products {
-  background-color: transparent;
-  border-color: transparent;
-  margin: 0 auto;
-}
-
-.btn-about {
-  @extend %button;
-  &:focus > .btn__icon {
-    fill: getColor('theme-white');
-  }
-}
-
-.btn-contacts {
-  @extend %button;
-  width: 196px;
-
-  @media screen and (max-width: 767px) {
-    margin-bottom: 16px;
-  }
-  @media screen and (min-width: 768px) {
-    margin-right: 16px;
-  }
-  &:focus > .btn__icon {
-    fill: getColor('theme-white');
-  }
-}
-
-.btn-transparent-contacts {
-  @extend %button;
-  width: 196px;
-  background-color: transparent;
-  &:focus > .btn__icon {
-    fill: getColor('theme-white');
+    fill: getColor('icon-hover-focus');
+    cursor: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' stroke='%238AE0A1' stroke-width='2' d='m18.047 14.012 10.934 10.205c1.871 1.746.837 4.883-1.706 5.174l-4.118.47a5 5 0 0 0-2.777 1.251l-2.373 2.136c-1.93 1.738-5.007.368-5.007-2.23V16.206c0-2.623 3.13-3.983 5.047-2.193Z'/%3E%3C/svg%3E");
   }
 }
 
 .btn__icon {
-  margin-left: 7px;
+  margin-left: 4px;
 }
 
 // ---------Menu buttons-------------
@@ -100,7 +61,7 @@
 }
 
 .btn-menu-burger__icon {
-  fill: getColor('theme-white');
+  fill: getColor('icon-hover-focus');
 }
 
 .btn-menu {
@@ -112,7 +73,7 @@
     display: none;
   }
   &:focus > .btn__icon {
-    fill: getColor('theme-white');
+    fill: getColor('icon-hover-focus');
   }
 }
 
@@ -123,10 +84,12 @@
   position: absolute;
   top: 16px;
   right: 16px;
+
   @media screen and (min-width: 480px) {
     top: 20px;
     right: 20px;
   }
+
   @media screen and (min-width: 768px) {
     top: 32px;
     right: 32px;
@@ -134,25 +97,39 @@
 }
 
 .btn-menu-close__icon {
-  fill: getColor('theme-white');
+  fill: getColor('icon-hover-focus');
 }
 
 // ---------Modal buttons----------
 
 .btn-modal {
   @extend %button;
+  display: block;
   margin: 0 auto;
 }
 
 .btn-modal-close {
   @extend %button-menu-modal;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 12px;
   right: 12px;
+  @include tablet {
+    width: 24px;
+    height: 24px;
+  }
+  &:hover > .btn-modal-close__icon {
+    fill: getColor('icon-close-color');
+  }
+  &:focus > .btn-modal-close__icon {
+    fill: getColor('icon-close-color');
+  }
 }
 
 .btn-modal-close__icon {
-  fill: getColor('theme-black');
+  fill: getColor('theme-dark');
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
